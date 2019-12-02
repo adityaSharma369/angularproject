@@ -1,0 +1,180 @@
+<nz-card nzTitle="Heading">
+    <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available.</p>
+    <div class="m-t-25">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="m-t-20">
+                    <h1>h1. Heading 1</h1>
+                    <h2>h2. Heading 2</h2>
+                    <h3>h3. Heading 3</h3>
+                    <h4>h4. Heading 4</h4>
+                    <h5>h5. Heading 5</h5>
+                    <h6>h5. Heading 6</h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="m-t-20">
+                    <h1 class="text-thin">h1. Heading 1</h1>
+                    <h2 class="text-thin">h2. Heading 2</h2>
+                    <h3 class="text-thin">h3. Heading 3</h3>
+                    <h4 class="text-thin">h4. Heading 4</h4>
+                    <h5 class="text-thin">h5. Heading 5</h5>
+                    <h6 class="text-thin">h5. Heading 6</h6>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Customizing headings</h4>
+                <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
+                <div class="m-t-25">
+                    <nz-card>
+                        <h3>
+                            Fancy display heading
+                            <small class="text-muted">With faded secondary text</small>
+                        </h3>
+                    </nz-card>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <codebox [codeContent]="typographyHeadingCode"></codebox>
+</nz-card>
+<nz-card nzTitle="Display Heading">
+    <p>Traditional heading elements are designed to work best in the meat of your page content. When you need a heading to stand out, consider using a <strong>display heading</strong>—a larger, slightly more opinionated heading style.</p>
+    <div class="">
+        <span class="display-1">Display 1</span>
+    </div>
+    <div>
+        <span class="display-2">Display 2</span>
+    </div>
+    <div>
+        <span class="display-3">Display 3</span>
+    </div>
+    <div>
+        <span class="display-4">Display 4</span>
+    </div>
+    <codebox [codeContent]="typographyDisplayHeadingCode"></codebox>
+</nz-card>
+<nz-card nzTitle="Paragraph">
+    <div class="row">
+        <div class="col-md-5">
+            <h5>Paragraph Text</h5>
+            <p>The ship is almost finished. Two or Three more things and we're in great shape. The sooner the better. Something's wrong here. No one has seen or knows anything about Threepio. He's been gone too long to have gotten lost. Relax</p>
+            <p> I'll talk to Lando and see what I can find out. I don't trust Lando. Well, I don't trust him, either. But he is my friend. Besides, we'll soon be gone. And then you're as good as gone, aren't you?</p>
+            <p>Put Captain Solo in the cargo hold. Artoo! Artoo! Where have you been? Turn around, you wooly...! Hurry, hurry!</p>
+        </div>
+        <div class="col-md-5 mr-auto ml-auto">
+            <h5>Paragraph Lead</h5>
+            <p class="mrg-btm-40">Use <code>.lead</code> class to make your pharagraph outstanding</p>
+            <p class="lead">Excuse me, sir. Might I inqu-... Yes, sir? Do you know where Commander Skywalker is?</p>
+        </div>
+    </div>
+    <codebox [codeContent]="typographyParagraphCode"></codebox>
+</nz-card>
+<nz-card nzTitle="Inline text elements">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="m-b-30">
+                <h5>Highlight</h5>
+                <p>Oh, I told you it was<mark>dangerous</mark> here.</p>
+            </div>
+            <div class="m-b-30">
+                <h5>Underline</h5>
+                <p>
+                    <u>Oh, I told you it was dangerous here.</u>
+                </p>
+            </div>
+            <div class="m-b-30">
+                <h5>Slash</h5>
+                <p>
+                    <del>Oh, I told you it was dangerous here.</del>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="m-b-30">
+                <h5>Small</h5>
+                <p><small>Oh, I told you it was dangerous here.</small></p>
+            </div>
+            <div class="m-b-30">
+                <h5>Lowercase</h5>
+                <p class="text-lowercase">Oh, I told you it was dangerous here.</p>
+            </div>
+            <div class="m-b-30">
+                <h5>Uppercase</h5>
+                <p class="text-uppercase">Oh, I told you it was dangerous here.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="m-b-30">
+                <h5>Capitalized</h5>
+                <p class="text-capitalize">Oh, I told you it was dangerous here.</p>
+            </div>
+            <div class="m-b-30">
+                <h5>Bold</h5>
+                <p>Oh, I told you it was <b>dangerous</b> here.</p>
+            </div>
+            <div class="m-b-30">
+                <h5>Italic</h5>
+                <p>Oh, I told you it was <i>dangerous</i> here.</p>
+            </div>
+        </div>
+    </div>
+    <codebox [codeContent]="typographyInlineTextElementCode"></codebox>
+</nz-card>
+<nz-card nzTitle="Paragraph">
+    <div class="row">
+        <div class="col-md-5">
+            <h5>Paragraph Text</h5>
+            <p>The ship is almost finished. Two or Three more things and we're in great shape. The sooner the better. Something's wrong here. No one has seen or knows anything about Threepio. He's been gone too long to have gotten lost. Relax</p>
+            <p> I'll talk to Lando and see what I can find out. I don't trust Lando. Well, I don't trust him, either. But he is my friend. Besides, we'll soon be gone. And then you're as good as gone, aren't you?</p>
+            <p>Put Captain Solo in the cargo hold. Artoo! Artoo! Where have you been? Turn around, you wooly...! Hurry, hurry!</p>
+        </div>
+        <div class="col-md-5 mr-auto ml-auto">
+            <h5>Paragraph Lead</h5>
+            <p class="mrg-btm-40">Use <code>.lead</code> class to make your pharagraph outstanding</p>
+            <p class="lead">Excuse me, sir. Might I inqu-... Yes, sir? Do you know where Commander Skywalker is?</p>
+        </div>
+    </div>
+    <codebox [codeContent]="typographyParagraphCode"></codebox>
+</nz-card>
+<nz-card nzTitle="Text Ultilities">
+    <div class="row">
+        <div class="col-md-3">
+            <h5 class="m-b-20">Text Colors</h5>
+            <p class="text-gray">Text Gray</p>
+            <p class="text-body-color">Text Body Color</p>
+            <p class="text-dark">Text Dark</p>
+            <p class="text-primary">Text Primary</p>
+            <p class="text-secondary">Text Secondary</p>
+            <p class="text-success">Text Success</p>
+            <p class="text-info">Text Info</p>
+            <p class="text-warning">Text Warning</p>
+            <p class="text-danger">Text Danger</p>
+            <p class="text-white bg-dark d-inline-block">Text White</p>
+        </div>
+        <div class="col-md-3">
+            <h5 class="m-b-20">Font Weight</h5>
+            <p class="font-weight-light">Font Weight Light</p>
+            <p class="font-weight-normal">Font Weight Normal</p>
+            <p class="font-weight-semibold">Font Weight Semibold</p>
+            <p class="font-weight-bold">Font Weight Bold</p>
+            <h5 class="m-b-20 m-t-40">Text Transformation</h5>
+            <p class="text-lowercase">Text Lowercase</p>
+            <p class="text-uppercase">Text Uppercase</p>
+            <p class="text-capitalize">Text Capitalize</p>
+        </div>
+        <div class="col-md-6">
+            <h5 class="m-b-20">Text Alignment</h5>
+            <p class="text-left p-10 border">Text Left</p>
+            <p class="text-center p-10 border">Text Center</p>
+            <p class="text-right p-10 border">Text Right</p>
+            <div class="p-h-10 p-v-15 border">
+                <p class="text-justify m-b-0">Text Justify: The ship is almost finished. Two or Three more things and we're in great shape. The sooner the better. Something's wrong here. No one has seen or knows anything about Threepio. He's been gone too long to have gotten lost. Relax</p>
+            </div>
+        </div>
+    </div>
+    <codebox [codeContent]="typographyTextUltilitiesCode"></codebox>
+</nz-card>

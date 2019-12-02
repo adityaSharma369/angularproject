@@ -1,0 +1,130 @@
+<div class="row">
+    <div class="col-md-6">
+        <nz-card>
+            <h4>Basic</h4>
+            <p>Basic timeline.</p>
+            <div class="m-t-25">
+                <nz-timeline>
+                    <nz-timeline-item>Create a services site 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Solve initial network problems 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Technical testing 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Network problems being solved 2015-09-01</nz-timeline-item>
+                </nz-timeline>
+            </div>
+            <codebox [codeContent]="timelineBasicCode"></codebox>
+        </nz-card>
+        <nz-card>
+            <h4>Last node</h4>
+            <p>When the timeline is incomplete and ongoing, put a ghost node at last. set <code>[nzPending]="true"</code> or <code>[nzPending]="a TemplateRef"</code>. Used in ascend chronological order.</p>
+            <div class="m-t-25">
+                <nz-timeline [nzPending]="'Recording...'">
+                    <nz-timeline-item>Create a services site 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Solve initial network problems 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Technical testing 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Network problems being solved 2015-09-01</nz-timeline-item>
+                </nz-timeline>
+            </div>
+            <codebox [codeContent]="timelineLastNodeCode"></codebox>
+        </nz-card>
+    </div>
+    <div class="col-md-6">
+        <nz-card>
+            <h4>Color</h4>
+            <p>Set the color of circles. <code>green</code> means completed or success status, <code>red</code> means warning or error, and <code>blue</code> means ongoing or other default status.</p>
+            <div class="m-t-25">
+                <nz-timeline>
+                    <nz-timeline-item nzColor="green">Create a services site 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item nzColor="green">Solve initial network problems 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item nzColor="red">
+                        <p>Solve initial network problems 1</p>
+                        <p>Solve initial network problems 2</p>
+                        <p>Solve initial network problems 3 2015-09-01</p>
+                    </nz-timeline-item>
+                    <nz-timeline-item>
+                        <p>Technical testing 1</p>
+                        <p>Technical testing 2</p>
+                        <p>Technical testing 3 2015-09-01</p>
+                    </nz-timeline-item>
+                </nz-timeline>
+            </div>
+            <codebox [codeContent]="timelineColorCode"></codebox>
+        </nz-card>
+        <nz-card>
+            <h4>Custom</h4>
+            <p>Set a node as an icon or other custom element.</p>
+            <div class="m-t-25">
+                <nz-timeline>
+                    <nz-timeline-item>Create a services site 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Solve initial network problems 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item nzColor="red" [nzDot]="dotTemplate">Technical testing 2015-09-01</nz-timeline-item>
+                    <nz-timeline-item>Network problems being solved 2015-09-01</nz-timeline-item>
+                </nz-timeline>
+                <ng-template #dotTemplate>
+                    <i nz-icon type="clock-circle-o" class="font-size-16"></i>
+                </ng-template>
+            </div>
+            <codebox [codeContent]="timelineCustomCode"></codebox>
+        </nz-card>
+    </div>
+</div>
+<nz-card nzTitle="API">
+    <pre><code highlight [textContent]="timelineAPICode"></code></pre>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">nz-timeline</span>
+            <label class="api-type-label component">component</label>
+        </h5>
+        <p>Timeline</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>[nzPending]</code></td>
+                    <td>Set the last ghost node's existence or its content</td>
+                    <td>boolean｜string｜<code>TemplateRef&lt;void&gt;</code></td>
+                    <td><code>false</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">nz-timeline-item</span>
+            <label class="api-type-label component">component</label>
+        </h5>
+        <p>Node of timeline</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>[nzColor]</code></td>
+                    <td>Set the circle's color to <code>blue</code>, <code>red</code>, <code>green</code> or other custom colors (css color)</td>
+                    <td>string</td>
+                    <td><code>blue</code></td>
+                </tr>
+                <tr>
+                    <td><code>[nzDot]</code></td>
+                    <td>Customize timeline dot</td>
+                    <td>string｜<code>TemplateRef&lt;void&gt;</code></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</nz-card>        

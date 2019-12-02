@@ -1,0 +1,336 @@
+<nz-card>
+    <h4>Basic</h4>
+    <p>The most basic usage of <code>nz-transfer</code> involves providing the source data and target keys arrays, plus the rendering and some callback functions.</p>
+    <div class="m-t-25">
+        <nz-transfer
+            [nzDataSource]="transferBasicList"
+            [nzTitles]="['Source', 'Target']"
+            (nzSelectChange)="transferBasicSelect($event)"
+            (nzChange)="transferBasicChange($event)">
+        </nz-transfer>
+    </div>
+    <codebox [codeContent]="transferBasicCode"></codebox>
+</nz-card>
+<nz-card>
+    <h4>Search</h4>
+    <p>Transfer with a search box.</p>
+    <div class="m-t-25">
+        <nz-transfer
+            [nzDataSource]="transferSearchList"
+            nzShowSearch
+            [nzFilterOption]="transferSearchFilterOption"
+            (nzSearchChange)="transferSearch($event)"
+            (nzSelectChange)="transferSearchSelect($event)"
+            (nzChange)="transferSearchShange($event)">
+        </nz-transfer>
+    </div>
+    <codebox [codeContent]="transferSearchCode"></codebox>
+</nz-card>
+<nz-card>
+    <h4>Advanced</h4>
+    <p>Advanced Usage of Transfer.</p>
+    <p>You can customize the labels of the transfer buttons, the width and height of the columns, and what should be displayed in the footer.</p>
+    <div class="m-t-25">
+        <nz-transfer
+            [nzDataSource]="transferAdvancedList"
+            nzShowSearch
+            [nzOperations]="['to right', 'to left']"
+            [nzListStyle]="{'width.px': 300, 'height.px': 400}"
+            [nzRender]="render"
+            [nzFooter]="footer"
+            (nzSelectChange)="transferAdvancedSelect($event)"
+            (nzChange)="transferAdvancedChange($event)">
+            <ng-template #render let-item>
+                {{ item.title }}-{{ item.description }}
+            </ng-template>
+            <ng-template #footer let-direction>
+                <button nz-button (click)="transferAdvancedReload(direction)" [nzSize]="'small'" class="float-right m-10">reload</button>
+            </ng-template>
+        </nz-transfer>
+    </div>
+    <codebox [codeContent]="transferAdvancedCode"></codebox>
+</nz-card>
+<nz-card>
+    <h4>Custom datasource</h4>
+    <p>Custom each Transfer Item, and in this way you can render a complex datasource.</p>
+    <div class="m-t-25">
+        <nz-transfer
+            [nzDataSource]="transferCustomDatasourceList"
+            [nzListStyle]="{'width.px': 300, 'height.px': 300}"
+            [nzRender]="transferCustomDatasourceRender"
+            (nzSelectChange)="transferCustomDatasourceSelect($event)"
+            (nzChange)="transferCustomDatasourceChange($event)">
+            <ng-template #transferCustomDatasourceRender let-item>
+                <i nz-icon type="{{item.icon}}"></i> {{ item.title }}
+            </ng-template>
+        </nz-transfer>
+    </div>
+    <codebox [codeContent]="transferCustomDatasourceCode"></codebox>
+</nz-card>
+<nz-card>
+    <h4>Check Before Move</h4>
+    <p>Can use <code>nzCanMove</code> to do two-verification.</p>
+    <div class="m-t-25">
+        <nz-transfer
+            [nzDataSource]="transferCheckBeforeMoveList"
+            [nzCanMove]="transferCheckBeforeMoveCanMove"
+            (nzSelectChange)="transferCheckBeforeMoveSelect($event)"
+            (nzChange)="transferCheckBeforeMoveChange($event)">
+        </nz-transfer>
+    </div>
+    <codebox [codeContent]="transferCheckBeforeMoveCode"></codebox>
+</nz-card>
+<nz-card nzTitle="API">
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">nz-transfer</span>
+            <label class="api-type-label component">component</label>
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>[nzDataSource]</code></td>
+                    <td>Used for setting the source data. Except the elements whose keys are <code>direction: 'right'</code> prop.</td>
+                    <td>TransferItem[]</td>
+                    <td>[]</td>
+                </tr>
+                <tr>
+                    <td><code>[nzTitles]</code></td>
+                    <td>A set of titles that are sorted from left to right.</td>
+                    <td>string[]</td>
+                    <td>['', '']</td>
+                </tr>
+                <tr>
+                    <td><code>[nzOperations]</code></td>
+                    <td>A set of operations that are sorted from bottom to top.</td>
+                    <td>string[]</td>
+                    <td>['', '']</td>
+                </tr>
+                <tr>
+                    <td><code>[nzListStyle]</code></td>
+                    <td>A custom CSS style used for rendering the transfer columns. equal <code>ngStyle</code></td>
+                    <td>object</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>[nzItemUnit]</code></td>
+                    <td>single unit</td>
+                    <td>string</td>
+                    <td>item</td>
+                </tr>
+                <tr>
+                    <td><code>[nzItemsUnit]</code></td>
+                    <td>multiple unit</td>
+                    <td>string</td>
+                    <td>items</td>
+                </tr>
+                <tr>
+                    <td><code>[nzRender]</code></td>
+                    <td>The function to generate the item shown on a column. please refer to the case.</td>
+                    <td><code>TemplateRef&lt;void&gt;</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>[nzFooter]</code></td>
+                    <td>A function used for rendering the footer. please refer to the case.</td>
+                    <td><code>TemplateRef&lt;void&gt;</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>[nzShowSearch]</code></td>
+                    <td>If included, a search box is shown on each column.</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td><code>[nzFilterOption]</code></td>
+                    <td>A function to determine whether an item should show in search result list</td>
+                    <td><code>(inputValue: string, item: TransferItem) =&gt; boolean</code></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><code>[nzSearchPlaceholder]</code></td>
+                    <td>The hint text of the search box.</td>
+                    <td>string</td>
+                    <td>'Search here'</td>
+                </tr>
+                <tr>
+                    <td><code>[nzNotFoundContent]</code></td>
+                    <td>Text to display when a column is empty.</td>
+                    <td>string</td>
+                    <td>'The list is empty'</td>
+                </tr>
+                <tr>
+                    <td><code>[nzCanMove]</code></td>
+                    <td>Two verification when transfer choice box. please refer to the case.</td>
+                    <td><code>(arg: TransferCanMove) =&gt; Observable&lt;TransferItem[]&gt;</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>(nzChange)</code></td>
+                    <td>A callback function that is executed when the transfer between columns is complete.</td>
+                    <td><code>EventEmitter&lt;TransferChange&gt;</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>(nzSearchChange)</code></td>
+                    <td>A callback function which is executed when search field are changed</td>
+                    <td><code>EventEmitter&lt;TransferSearchChange&gt;</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><code>(nzSelectChange)</code></td>
+                    <td>A callback function which is executed when selected items are changed.</td>
+                    <td><code>EventEmitter&lt;TransferSearchChange&gt;</code></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">TransferItem</span>
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>title</td>
+                    <td>Used to display and search keyword</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>direction</td>
+                    <td>Used for setting the source data. Except the elements whose keys are <code>direction: 'right'</code> prop.</td>
+                    <td><code>left,right</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>disabled</td>
+                    <td>specifies whether the checkbox is disabled</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td>checked</td>
+                    <td>specifies whether the checkbox is selected</td>
+                    <td>boolean</td>
+                    <td>false</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">TransferCanMove</span>
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>direction</td>
+                    <td>data direction</td>
+                    <td><code>left,right</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>list</td>
+                    <td>Used for setting the source data.</td>
+                    <td>TransferItem[]</td>
+                    <td>[]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">TransferChange</span>
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>from</td>
+                    <td>data direction</td>
+                    <td><code>left,right</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>to</td>
+                    <td>data direction</td>
+                    <td><code>left,right</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>list</td>
+                    <td>Used for setting the source data.</td>
+                    <td>TransferItem[]</td>
+                    <td>[]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="markdown api-container">
+        <h5>
+            <span class="font-weight-light">TransferSearchChange</span>
+        </h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>direction</td>
+                    <td>data direction</td>
+                    <td><code>left,right</code></td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>Search keyword</td>
+                    <td>string</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</nz-card>
